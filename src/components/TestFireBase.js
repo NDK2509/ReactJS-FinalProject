@@ -2,24 +2,28 @@ import { useEffect, useState } from "react";
 import FireBaseConnection from "./../core/FireBaseConnection";
 import { collection, getDocs, query } from "firebase/firestore/lite";
 const TestFireBase = () => {
-  const [data, setData] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [dataLoading, setDataLoading] = useState({
+    data: [],
+    isLoaded: false
+  });
 
   useEffect(() => {
     const callFB = async () => {
       var db = new FireBaseConnection().getDB();
       var q = query(collection(db, "Accounts"));
       var querySnapShot = await getDocs(q);
-      setData(querySnapShot.docs.map((snap) => snap.data()));
-      setIsLoaded(true);
+      setDataLoading({
+        data: querySnapShot.docs.map((snap) => snap.data()),
+        isLoaded: true
+      });
     };
-    if (!isLoaded) callFB(); // eslint-disable-next-line
-  }, [isLoaded]);
+    if (!dataLoading.isLoaded) callFB(); // eslint-disable-next-line
+  }, [dataLoading]);
 
-  if (isLoaded) {
+  if (dataLoading.isLoaded) {
     return (
       <div>
-        {data.map((admin) => (
+        {dataLoading.data.map((admin) => (
           <div>
             {admin.name} {admin.password}
           </div>
