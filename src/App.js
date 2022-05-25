@@ -1,9 +1,23 @@
+import { Link, Outlet } from "react-router-dom";
+// import TestFireBase from "./components/TestFireBase";
 
-import TestFireBase from './components/TestFireBase';
-function App() {
+const App = () => {
   return (
-    <TestFireBase/>
+    <div className="container text-align-center">
+      {/* <TestFireBase /> */}
+      <nav>
+        <ul className="nav">
+          <li className="nav-item me-5">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="nav-item me-5">
+            <Link to="Cart">Cart</Link>
+          </li>
+        </ul>
+      </nav>
+      <Outlet />
+    </div>
   );
-}
+};
 
 export default App;
