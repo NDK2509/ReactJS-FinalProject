@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import FireBaseConnection from "./../core/FireBaseConnection";
-import { collection, getDocs, query } from "firebase/firestore/lite";
+import { collection, getDocs} from "firebase/firestore/lite";
 import { Link } from "react-router-dom";
 const NewProducts = () => {
   const [dataLoading, setDataLoading] = useState({
@@ -11,10 +11,10 @@ const NewProducts = () => {
   useEffect(() => {
     const callFB = async () => {
       var db = new FireBaseConnection().getDB();
-      var q = query(collection(db, "Products"));
-      var querySnapShot = await getDocs(q);
+      // var q = query(collection(db, "Tours"));
+      var querySnapShot = await getDocs(collection(db, "Tours"));
       setDataLoading({
-        data: querySnapShot.docs.map((snap) => snap.data()),
+        data: querySnapShot.docs.map((snap) => {return {...snap.data(), id: snap.id}}),
         isLoaded: true,
       });
     };
@@ -26,8 +26,8 @@ const NewProducts = () => {
       <div>
         <h2>New Products</h2>
         <div className="row" style={{ columnGap: "1rem" }}>
-          {dataLoading.data.map((product) => (
-            <Product item={product} key={product.id} />
+          {dataLoading.data.map((product, index) => (
+            <Product item={product} key={index} />
           ))}
         </div>
       </div>
@@ -38,7 +38,7 @@ const NewProducts = () => {
 };
 const Product = ({ item }) => {
   return (
-    <div className="card col-3" style={{ width: "18rem" }} key={item.id}>
+    <div className="card col-3" style={{ width: "18rem" }}>
       <img
         src={item.img}
         className="card-img-top"

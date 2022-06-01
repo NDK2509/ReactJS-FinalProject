@@ -1,9 +1,10 @@
-import NewProducts from "../components/NewProducts";
+// import NewProducts from "../components/NewProducts";
+import { TourContainer } from "../components/Tour.Comp";
 
 const HomePage = () => {
   return (
     <section className="home">
-      <NewProducts />
+      <TourContainer />
     </section>
   );
 };

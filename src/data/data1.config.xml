@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<MineParams xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <StartURL>
+    <url>https://www.ivivu.com/du-lich/tour-ha-noi?date=2022-06-02&amp;from=hồ-chí-minh</url>
+  </StartURL>
+  <FieldList>
+    <DATAFIELD>
+      <type>Text</type>
+      <name>name</name>
+      <selector>HTML &gt; BODY &gt; DIV.wrapper &gt; DIV.content-wrapper &gt; DIV:nth-of-type(2) &gt; SECTION.content.no-padding &gt; DIV &gt; DIV:nth-of-type(1) &gt; DIV &gt; DIV.col-xs-12.col-sm-12.col-md-9 &gt; DIV &gt; DIV:nth-of-type(3) &gt; DIV &gt; DIV &gt; DIV &gt; DIV &gt; DIV:nth-of-type(01) &gt; DIV &gt; DIV.col-xs-12.col-sm-9.col-md-9 &gt; DIV &gt; DIV.col-xs-12.col-sm-8.col-md-8 &gt; SPAN.tourItemName &gt; A</selector>
+      <pattern>true</pattern>
+      <regex />
+    </DATAFIELD>
+    <DATAFIELD>
+      <type>Url</type>
+      <name>url</name>
+      <selector>HTML &gt; BODY &gt; DIV.wrapper &gt; DIV.content-wrapper &gt; DIV:nth-of-type(2) &gt; SECTION.content.no-padding &gt; DIV &gt; DIV:nth-of-type(1) &gt; DIV &gt; DIV.col-xs-12.col-sm-12.col-md-9 &gt; DIV &gt; DIV:nth-of-type(3) &gt; DIV &gt; DIV &gt; DIV &gt; DIV &gt; DIV:nth-of-type(01) &gt; DIV &gt; DIV.col-xs-12.col-sm-9.col-md-9 &gt; DIV &gt; DIV.col-xs-12.col-sm-8.col-md-8 &gt; SPAN.tourItemName &gt; A</selector>
+      <pattern>true</pattern>
+      <regex />
+    </DATAFIELD>
+    <DATAFIELD>
+      <type>Image_URL</type>
+      <name>img</name>
+      <selector>HTML &gt; BODY &gt; DIV.wrapper &gt; DIV.content-wrapper &gt; DIV:nth-of-type(2) &gt; SECTION.content.no-padding &gt; DIV &gt; DIV:nth-of-type(1) &gt; DIV &gt; DIV.col-xs-12.col-sm-12.col-md-9 &gt; DIV &gt; DIV:nth-of-type(3) &gt; DIV &gt; DIV &gt; DIV &gt; DIV &gt; DIV:nth-of-type(01) &gt; DIV &gt; DIV.col-xs-12.col-sm-3.col-md-3 &gt; A &gt; PICTURE &gt; IMG.img-responsive.hidden-xs</selector>
+      <pattern>true</pattern>
+      <regex />
+    </DATAFIELD>
+    <DATAFIELD>
+      <type>Text</type>
+      <name>price</name>
+      <selector>HTML &gt; BODY &gt; DIV.wrapper &gt; DIV.content-wrapper &gt; DIV:nth-of-type(2) &gt; SECTION.content.no-padding &gt; DIV &gt; DIV:nth-of-type(1) &gt; DIV &gt; DIV.col-xs-12.col-sm-12.col-md-9 &gt; DIV &gt; DIV:nth-of-type(3) &gt; DIV &gt; DIV &gt; DIV &gt; DIV &gt; DIV:nth-of-type(01) &gt; DIV &gt; DIV.col-xs-12.col-sm-9.col-md-9 &gt; DIV &gt; DIV.col-xs-12.col-sm-4.col-md-4 &gt; SPAN:nth-of-type(2)</selector>
+      <pattern>true</pattern>
+      <regex />
+    </DATAFIELD>
+    <DATAFIELD>
+      <type>Text</type>
+      <name>duration</name>
+      <selector>HTML &gt; BODY &gt; DIV.wrapper &gt; DIV.content-wrapper &gt; DIV:nth-of-type(2) &gt; SECTION.content.no-padding &gt; DIV &gt; DIV:nth-of-type(1) &gt; DIV &gt; DIV.col-xs-12.col-sm-12.col-md-9 &gt; DIV &gt; DIV:nth-of-type(3) &gt; DIV &gt; DIV &gt; DIV &gt; DIV &gt; DIV:nth-of-type(01) &gt; DIV &gt; DIV.col-xs-12.col-sm-9.col-md-9 &gt; DIV &gt; DIV.col-xs-12.col-sm-8.col-md-8 &gt; DIV &gt; SPAN:nth-of-type(2)</selector>
+      <pattern>true</pattern>
+      <regex />
+    </DATAFIELD>
+    <DATAFIELD>
+      <type>Text</type>
+      <name>date</name>
+      <selector>HTML &gt; BODY &gt; DIV.wrapper &gt; DIV.content-wrapper &gt; DIV:nth-of-type(2) &gt; SECTION.content.no-padding &gt; DIV &gt; DIV:nth-of-type(1) &gt; DIV &gt; DIV.col-xs-12.col-sm-12.col-md-9 &gt; DIV &gt; DIV:nth-of-type(3) &gt; DIV &gt; DIV &gt; DIV &gt; DIV &gt; DIV:nth-of-type(01) &gt; DIV &gt; DIV.col-xs-12.col-sm-9.col-md-9 &gt; DIV &gt; DIV.col-xs-12.col-sm-4.col-md-4 &gt; SPAN.tourItemDateTime</selector>
+      <pattern>true</pattern>
+      <regex />
+    </DATAFIELD>
+  </FieldList>
+  <URLList />
+  <CategoryLinkSelectors />
+  <KeywordList />
+  <KeywordFileList />
+  <FileAnchorKWList />
+</MineParams>

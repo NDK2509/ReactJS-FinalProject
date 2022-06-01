@@ -5,8 +5,8 @@ import Header from "../components/Header.Comp";
 const MainLayout = () => {
 	return (
 		<>
+			<Header />
 			<div className="container my-2">
-				<Header />
 				<Outlet />
 			</div>
 			<Footer />

@@ -19,14 +19,14 @@ const SearchBar = () => {
     <div className="search-bar">
       <form>
         <input type="text" placeholder="Enter sommething..." />
-        <i class="fa fa-search ms-3" aria-hidden="true"></i>
+        <i className="fa fa-search ms-3" aria-hidden="true"></i>
       </form>
     </div>
   )
 }
 const Header = () => {
   return (
-    <header >
+    <header className="px-5">
       <Left/>
       <SearchBar/>
     </header>

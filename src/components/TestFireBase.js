@@ -10,7 +10,7 @@ const TestFireBase = () => {
   useEffect(() => {
     const callFB = async () => {
       var db = new FireBaseConnection().getDB();
-      var q = query(collection(db, "Accounts"));
+      var q = query(collection(db, "Tours"));
       var querySnapShot = await getDocs(q);
       setDataLoading({
         data: querySnapShot.docs.map((snap) => snap.data()),
