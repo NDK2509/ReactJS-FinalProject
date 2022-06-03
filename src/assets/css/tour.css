@@ -1,0 +1,47 @@
+.tour-list {
+  /* background-color: #fafafa; */
+  border-radius: 0.3rem;
+}
+.tour-group-by-source {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4rem;
+}
+.vertical-tour-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid 0.5px #d1d1d1;
+  border-radius: 0.3rem;
+  padding: 1rem;
+  background-color: #fff;
+  width: 16rem;
+  height: 18rem;
+}
+.vertical-tour-card:hover {
+  box-shadow: 3px 3px 0.7rem #bfbfbf;
+}
+.vertical-tour-card img {
+  width:15rem;
+  height: 12rem;
+  border-radius: 0.4rem;
+}
+.see-more-link {
+  color: #ffcc00e5;
+  text-decoration: none;
+  padding: 0 1rem;
+  border: transparent 1px dashed;
+}
+.see-more-link:hover {
+  color: #ffcc00e5;
+  border: black dashed 1px;
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+.tour-link {
+  color: black
+}
+.tour-link:hover{
+  color: #ffcc00e5
+}

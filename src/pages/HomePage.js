@@ -1,10 +1,11 @@
-// import NewProducts from "../components/NewProducts";
-import { TourContainer } from "../components/Tour.Comp";
+import TourContainer from "../components/Home.Comp";
+import WhyChoose from "../components/WhyChoose.Comp";
 
 const HomePage = () => {
   return (
-    <section className="home">
+    <section className="home" style={{width: "90%"}}>
       <TourContainer />
+      <WhyChoose />
     </section>
   );
 };

@@ -6,9 +6,16 @@ const MainLayout = () => {
 	return (
 		<>
 			<Header />
-			<div className="container my-2">
+			<main
+				className="my-2"
+				style={{
+					display: "flex",
+					justifyContent: "space-around",
+					alignItems: "center"
+				}}
+			>
 				<Outlet />
-			</div>
+			</main>
 			<Footer />
 		</>
 	);

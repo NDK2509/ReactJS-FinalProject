@@ -5,10 +5,10 @@ const Left = () => {
 			<img className="img-thumbnail" src="images/logo.png" style={{width: "10rem"}} alt="" />
 			<nav>
 				<ul>
-					<li>Travel</li>
-					<li>Delivery</li>
-					<li>News</li>
-					<li>Voucher</li>
+					<li>Du lịch</li>
+					<li>Vận chuyển</li>
+					<li>Tin tức</li>
+					<li>Giảm giá</li>
 				</ul>
 			</nav>
 		</div>
@@ -18,7 +18,7 @@ const SearchBar = () => {
   return (
     <div className="search-bar">
       <form>
-        <input type="text" placeholder="Enter sommething..." />
+        <input type="text" placeholder="Nhập tên tỉnh thành..." />
         <i className="fa fa-search ms-3" aria-hidden="true"></i>
       </form>
     </div>
