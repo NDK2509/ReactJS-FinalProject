@@ -1,22 +1,57 @@
-import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore/lite"
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import FireBaseConnection from "../core/FireBaseConnection"
-const ToursPage = () =>  {
-    const params = useParams()
-    const [data, setData] = useState({
-        source: {},
-        list: [],
-        isLoaded: false
-    })
-    useEffect(() => {
-        const callFB = async () => {
-            const db = new FireBaseConnection().getDB()
-            const source = await getDoc(doc(collection(db, "Sources"), where("url") ))
-        } 
-    })
-    return (
-        <h1>Product {params.id}</h1>
-    )
-}
-export default ToursPage
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore/lite";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { HorizontalTourCard } from "../components/Tour.Comp";
+import FireBaseConnection from "../core/FireBaseConnection";
+const ToursPage = () => {
+  const params = useParams();
+  const [data, setData] = useState({
+    source: {},
+    list: [],
+    isLoaded: false,
+  });
+  useEffect(() => {
+    const callFB = async () => {
+      const db = new FireBaseConnection().getDB();
+      const source = await getDoc(doc(db, "Sources", params.id));
+      console.log(source.data());
+      const toursSnap = await getDocs(
+        query(
+          collection(db, "Tours"),
+          where("url", ">=", source.data().url),
+          where("url", "<=", source.data().url + "\uf8ff")
+        )
+      );
+      console.log(toursSnap.docs.map((doc) => doc.data()));
+
+      setData({
+        source: source.data(),
+        list: toursSnap.docs.map((doc) => {
+          return { ...doc.data(), id: doc.id };
+        }),
+        isLoaded: true,
+      });
+    };
+    if (!data.isLoaded) callFB(); // eslint-disable-next-line
+  }, [data.isLoaded]);
+  return data.isLoaded ? (
+    <>
+      <h1 className="text-center">{data.source.url}</h1>
+      <div className="d-flex flex-column">
+        {data.list.map((tour) => (
+          <HorizontalTourCard tour={tour} />
+        ))}
+      </div>
+    </>
+  ) : (
+    <div className="text-center">Loading...</div>
+  );
+};
+export default ToursPage;

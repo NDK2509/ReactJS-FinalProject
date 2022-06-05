@@ -33,7 +33,7 @@ const TourContainer = () => {
 			{data.sourceList.map((source, index) => (
 				<GroupBySource
 					key={index}
-					title={source.url}
+					source={source}
 					list={data.tourList
 						.filter((tour) => tour.url.includes(source.url))
 						.slice(0, 7)}
