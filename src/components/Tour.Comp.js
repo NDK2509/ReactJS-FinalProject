@@ -3,7 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper";
 import "./../assets/css/tour.css";
 import "swiper/css/bundle";
-import { formatMoney, getMoney } from "../utils/Currency.util";
+import { getMoney } from "../utils/Currency.util";
+import { formatDate } from "../utils/Date.util";
 
 const VerticalTourCard = ({ tour }) => {
   return (
@@ -18,7 +19,10 @@ const VerticalTourCard = ({ tour }) => {
           <img src={tour.img} alt="" />
           <div className="content mt-3">
             <h6>{tour.name}</h6>
-            <p className="text-end price">{formatMoney(getMoney(tour.price))} VND</p>
+            <p className="text-muted">*{tour.duration}
+              <br/>
+              Ngày khởi hành: {formatDate(tour.date) || "Liên hệ"}</p>
+            <p className="text-end price">{getMoney(tour.price) || "Liên hệ để biết thêm"}</p>
           </div>
         </div>
       </a>
@@ -38,6 +42,8 @@ const HorizontalTourCard = ({ tour }) => {
           <img src={tour.img} alt="" />
           <div className="content mt-3">
             <h6>{tour.name}</h6>
+            <p className="text-muted">*{tour.duration}</p>
+            <p className="text-end price">{getMoney(tour.price) || "Liên hệ để biết thêm"}</p>
           </div>
         </div>
       </a>

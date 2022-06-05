@@ -1,5 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { memo } from "react";
 import "./../assets/css/header.css"
+
 const Left = () => {
   return (
 		<div className="left-header d-flex justify-content-evenly align-items-center">
@@ -17,14 +19,22 @@ const Left = () => {
 	);
 }
 const SearchBar = () => {
+  const navigate = useNavigate()
+  // const [searchParams, setSearchParams] = useSearchParams()
+  const searchHandler = (e) => {
+    e.preventDefault()
+    navigate("/Search")
+  }
   return (
     <div className="search-bar">
-      <form>
-        <input type="text" placeholder="Nhập tên tỉnh thành..." />
-        <i className="fa fa-search ms-3" aria-hidden="true"></i>
+      <form onSubmit={searchHandler}>
+        <input type="text" name="searchKey" placeholder="Nhập tên tỉnh thành..." />
+        <button type="submit" style={{background: "transparent", border: "none"}}>
+          <i className="fa fa-search ms-3" aria-hidden="true"></i>
+        </button>
       </form>
     </div>
-  )
+  );
 }
 const Header = () => {
   return (
@@ -35,4 +45,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default memo(Header)

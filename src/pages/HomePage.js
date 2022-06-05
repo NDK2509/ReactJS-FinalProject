@@ -1,5 +1,5 @@
-import TourContainer from "../components/Home.Comp";
-import WhyChoose from "../components/WhyChoose.Comp";
+import TourContainer from "../components/Home.comp";
+import WhyChoose from "../components/WhyChoose.comp";
 
 const HomePage = () => {
   return (

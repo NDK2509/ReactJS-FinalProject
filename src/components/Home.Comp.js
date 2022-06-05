@@ -1,6 +1,6 @@
 import { collection, getDocs } from "firebase/firestore/lite";
 import { useEffect, useState } from "react";
-import {GroupBySource} from "./../components/Tour.Comp"
+import {GroupBySource} from "./Tour.comp"
 import FireBaseConnection from "../core/FireBaseConnection";
 
 const TourContainer = () => {

@@ -5,21 +5,10 @@
  */
 const getMoney = (moneyStr) => {
     try {
-       return moneyStr.match(/\d+/g).join("")
+       const digits = moneyStr.match(/\d+/g).join("")
+       return new Intl.NumberFormat().format(digits) + " đ"
     } catch (e) {
         return null
     }
 }
-const formatMoney = (money) => {
-    try {
-      const moneyFormated = new Intl.NumberFormat().format(money);
-      // eslint-disable-next-line
-      if (moneyFormated != 0) {
-        return moneyFormated;
-      }
-      throw new Error();
-    } catch (e) {
-        return "Liên hệ để biết giá"
-    }
-}
-export {getMoney, formatMoney}
+export {getMoney}

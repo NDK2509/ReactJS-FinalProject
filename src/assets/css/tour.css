@@ -19,7 +19,8 @@
   padding: 1rem;
   background-color: #fff;
   width: 16rem;
-  height: 18rem;
+  height: 23rem;
+  position: relative
 }
 
 .vertical-tour-card:hover,
@@ -31,8 +32,17 @@
   width: 15rem;
   height: 12rem;
   border-radius: 0.4rem;
+  object-fit: cover;
+  object-position: 50% 50%;
 }
-
+.vertical-tour-card .content {
+  padding-bottom: 1rem;
+}
+.vertical-tour-card .price {
+  position: absolute;
+  bottom: 0;
+  right: 1rem;
+}
 .horizontal-tour-card {
   display: flex;
   flex-direction: row;
@@ -54,6 +64,9 @@
 }
 .horizontal-tour-card .content {
   width: 20rem;
+}
+.price {
+  font-size: 1.2rem;
 }
 .see-more-link {
   color: #ffcc00e5;

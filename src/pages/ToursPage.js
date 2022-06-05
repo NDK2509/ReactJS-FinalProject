@@ -8,7 +8,7 @@ import {
 } from "firebase/firestore/lite";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { HorizontalTourCard } from "../components/Tour.Comp";
+import { HorizontalTourCard } from "../components/Tour.comp";
 import FireBaseConnection from "../core/FireBaseConnection";
 const ToursPage = () => {
   const params = useParams();
@@ -21,7 +21,6 @@ const ToursPage = () => {
     const callFB = async () => {
       const db = new FireBaseConnection().getDB();
       const source = await getDoc(doc(db, "Sources", params.id));
-      console.log(source.data());
       const toursSnap = await getDocs(
         query(
           collection(db, "Tours"),
@@ -29,7 +28,6 @@ const ToursPage = () => {
           where("url", "<=", source.data().url + "\uf8ff")
         )
       );
-      console.log(toursSnap.docs.map((doc) => doc.data()));
 
       setData({
         source: source.data(),
@@ -45,8 +43,8 @@ const ToursPage = () => {
     <>
       <h1 className="text-center">{data.source.url}</h1>
       <div className="d-flex flex-column">
-        {data.list.map((tour) => (
-          <HorizontalTourCard tour={tour} />
+        {data.list.map((tour, index) => (
+          <HorizontalTourCard key={index} tour={tour} />
         ))}
       </div>
     </>
