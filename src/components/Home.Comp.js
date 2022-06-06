@@ -26,7 +26,7 @@ const TourContainer = () => {
 			});
 		};
 		if (!data.isLoaded) callFB(); // eslint-disable-next-line
-	}, [data]);
+	}, [data.isLoaded]);
 
 	return data.isLoaded ? (
 		<section className="tour-list py-3">

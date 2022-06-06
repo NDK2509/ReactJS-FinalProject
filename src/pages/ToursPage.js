@@ -28,7 +28,6 @@ const ToursPage = () => {
           where("url", "<=", source.data().url + "\uf8ff")
         )
       );
-
       setData({
         source: source.data(),
         list: toursSnap.docs.map((doc) => {
