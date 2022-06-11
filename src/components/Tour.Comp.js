@@ -42,8 +42,14 @@ const HorizontalTourCard = ({ tour }) => {
           <img src={tour.img} alt="" />
           <div className="content mt-3">
             <h6>{tour.name}</h6>
-            <p className="text-muted">*{tour.duration}</p>
-            <p className="text-end price">{getMoney(tour.price) || "Liên hệ để biết thêm"}</p>
+            <p className="text-muted">
+              *{tour.duration}
+              <br />
+              Ngày khởi hành: {formatDate(tour.date) || "Liên hệ"}
+            </p>
+            <p className="text-end price">
+              {getMoney(tour.price) || "Liên hệ để biết thêm"}
+            </p>
           </div>
         </div>
       </a>
