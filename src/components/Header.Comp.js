@@ -18,25 +18,28 @@ const Left = () => {
 		</div>
 	);
 }
-const SearchHint = ({hint}) => {
-  return (
-    <li className="text-dark hint">
-      <Link to={{ pathname: "/Search", search: `?searchKey=${hint}` }} >
-        <div>{hint}</div>
-      </Link>
-    </li>
-  );
-}
-const Hints = ({hintList}) => {
-  return (
-    <ul className="hints">
-      {
-        hintList.map((hint, index) => <SearchHint key={index} hint={hint.name} />)
-      }
-    </ul>
-  );
-}
+
 const SearchBar = () => {
+  //child compnents
+  const SearchHint = ({ hint }) => {
+    return (
+      <li className="text-dark hint">
+        <Link to={{ pathname: "/Search", search: `?searchKey=${hint}` }} onClick={() => setSearchKey("")}>
+          <div>{hint}</div>
+        </Link>
+      </li>
+    );
+  };
+  const Hints = ({ hintList }) => {
+    return (
+      <ul className="hints">
+        {hintList.map((hint, index) => (
+          <SearchHint key={index} hint={hint.name} />
+        ))}
+      </ul>
+    );
+  };
+  //
   const navigate = useNavigate()
   const [searchKey, setSearchKey] = useState("")
   const provinces = useMemo(() => require("./../utils/vn-provinces.json"), [])
@@ -56,7 +59,7 @@ const SearchBar = () => {
   return (
     <div className="search-bar">
       <form onSubmit={searchHandler} autoComplete="off">
-        <input type="text" name="searchKey" value={searchKey} autoComplete="off" placeholder="Nhập tên tỉnh thành..." onChange={inputChangeHandler}/>
+        <input type="text" name="searchKey" dafaultValue="" value={searchKey} autoComplete="off" placeholder="Nhập tên tỉnh thành..." onChange={inputChangeHandler}/>
         <button type="submit" style={{background: "transparent", border: "none"}}>
           <i className="fa fa-search ms-3" aria-hidden="true"></i>
         </button>
