@@ -59,7 +59,7 @@ const SearchBar = () => {
   return (
     <div className="search-bar">
       <form onSubmit={searchHandler} autoComplete="off">
-        <input type="text" name="searchKey" dafaultValue="" value={searchKey} autoComplete="off" placeholder="Nhập tên tỉnh thành..." onChange={inputChangeHandler}/>
+        <input type="text" name="searchKey" value={searchKey} autoComplete="off" placeholder="Nhập tên tỉnh thành..." onChange={inputChangeHandler}/>
         <button type="submit" style={{background: "transparent", border: "none"}}>
           <i className="fa fa-search ms-3" aria-hidden="true"></i>
         </button>

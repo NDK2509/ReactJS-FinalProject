@@ -5,12 +5,14 @@ import "./../assets/css/tour.css";
 import "swiper/css/bundle";
 import { getMoney } from "../utils/Currency.util";
 import { formatDate } from "../utils/Date.util";
+import { incrementTraffic } from "../utils/FireBase.util";
 
 const VerticalTourCard = ({ tour }) => {
   return (
     <div style={{ margin: "auto" }}>
       <a
         href={tour.url}
+        onClick={() => {incrementTraffic(tour.id); console.log('click')}}
         className="tour-link text-decoration-none"
         target="_blank"
         rel="noreferrer"
@@ -34,6 +36,7 @@ const HorizontalTourCard = ({ tour }) => {
     <div style={{ margin: "auto", marginTop: "2rem" }}>
       <a
         href={tour.url}
+        onClick={() => incrementTraffic(tour.id)}
         className="tour-link text-decoration-none"
         target="_blank"
         rel="noreferrer"

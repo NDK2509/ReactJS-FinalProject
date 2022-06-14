@@ -24,7 +24,7 @@ const SearchPage = () => {
         .map((doc) => {
           return { ...doc.data(), id: doc.id };
         })
-        .sort((a, b) => getNumber(b.price) - getNumber(a.price));
+        .sort((a, b) => getNumber(b.traffic) - getNumber(a.traffic));
       setData({
         tourList,
         isLoaded: true,
