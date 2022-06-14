@@ -12,7 +12,7 @@ const VerticalTourCard = ({ tour }) => {
     <div style={{ margin: "auto" }}>
       <a
         href={tour.url}
-        onClick={() => {incrementTraffic(tour.id); console.log('click')}}
+        onClick={() => incrementTraffic(tour.id)}
         className="tour-link text-decoration-none"
         target="_blank"
         rel="noreferrer"

@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { VerticalTourCard } from "../components/Tour.comp";
 import FireBaseConnection from "../core/FireBaseConnection";
-import getNumber from "../utils/Number.util";
 
 const SearchPage = () => {
   const [params] = useSearchParams();
@@ -24,7 +23,7 @@ const SearchPage = () => {
         .map((doc) => {
           return { ...doc.data(), id: doc.id };
         })
-        .sort((a, b) => getNumber(b.traffic) - getNumber(a.traffic));
+        .sort((a, b) => b.traffic - a.traffic);
       setData({
         tourList,
         isLoaded: true,
@@ -49,7 +48,7 @@ const SearchPage = () => {
               ))
             ) : (
               <h4 className="text-center">
-                  Tour đi <b>{searchKey}</b> hiện không khả dụng!
+                Tour đi <b>{searchKey}</b> hiện không khả dụng!
               </h4>
             )
           ) : (
