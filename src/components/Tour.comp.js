@@ -21,10 +21,17 @@ const VerticalTourCard = ({ tour }) => {
           <img src={tour.img} alt="" />
           <div className="content mt-3">
             <h6>{tour.name}</h6>
-            <p className="text-muted">*{tour.duration.trim()}
-              <br/>
-              Ngày khởi hành: {formatDate(tour.date) || "Liên hệ"}</p>
-            <p className="text-end price">{getMoney(tour.price) || "Liên hệ để biết thêm"}</p>
+            <p className="text-muted">
+              *{tour.duration.trim()}
+              <br />
+              Ngày khởi hành: {formatDate(tour.date) || "Liên hệ"}
+            </p>
+            <p className="text-end price">
+              {getMoney(tour.price) || "Liên hệ để biết thêm"}
+            </p>
+            <p className="text-muted text-end traffic">
+              {tour.traffic} lượt xem
+            </p>
           </div>
         </div>
       </a>
@@ -52,6 +59,9 @@ const HorizontalTourCard = ({ tour }) => {
             </p>
             <p className="text-end price">
               {getMoney(tour.price) || "Liên hệ để biết thêm"}
+            </p>
+            <p className="text-muted text-end traffic">
+              {tour.traffic} lượt xem
             </p>
           </div>
         </div>

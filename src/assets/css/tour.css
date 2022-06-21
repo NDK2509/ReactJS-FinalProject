@@ -19,7 +19,7 @@
   padding: 1rem;
   background-color: #fff;
   width: 16rem;
-  height: 23rem;
+  height: 25rem;
   position: relative
 }
 
@@ -67,6 +67,10 @@
 }
 .price {
   font-size: 1.2rem;
+}
+.traffic {
+  font-size: 100;
+  font-style: italic;
 }
 .see-more-link {
   color: #ffcc00e5;
