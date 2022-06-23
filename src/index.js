@@ -8,6 +8,7 @@ import ToursPage from "./pages/ToursPage";
 import Error from "./pages/ErrorPage";
 import MainLayout from "./layouts/MainLayout";
 import SearchPage from "./pages/SearchPage";
+import LoginPage from "./pages/LoginPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,6 +19,7 @@ root.render(
         <Route path="WishList" element={<WishListPage />} />
         <Route path="Search" element={<SearchPage />} />
         <Route path="Tours/:id" element={<ToursPage />} />
+        <Route path="Login" element={<LoginPage />} />
         <Route path="*" element={<Error />} />
       </Route>
     </Routes>

@@ -1,8 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useMemo, useState } from "react";
-import GoogleLogin from "react-google-login";
 import "./../assets/css/header.css";
+import { useEffect } from "react";
+import jwtDecode from "jwt-decode";
+import Cookies from "js-cookie";
 
+const LOGIN_KEY = "ReactJSLogin"
 const Left = () => {
   return (
     <div className="left-header d-flex justify-content-evenly align-items-center">
@@ -94,27 +97,50 @@ const SearchBar = () => {
   );
 };
 const LoginButton = () => {
-  return (
-    <GoogleLogin
-      clientId={process.env.CLIENT_ID}
-      onSuccess={(res) => console.log(res)}
-      onFailure={(error) => console.log(error)}
-      cookiePolicy="single_host_origin"
-      uxMode="redirect"
-      isSignedIn={true}
-      render={(renderProps) => (
-        <button
-          onClick={renderProps.onClick}
-          className="btn"
-          disabled={renderProps.disabled}
-        >
-          <i
-            className="fas fa-user-circle text-warning"
-            style={{ fontSize: "1.3rem" }}
-          ></i>
-        </button>
-      )}
+  const handleResponse = (response) => {
+    const data = jwtDecode(response.credential);
+    console.log(data);
+    setIsLogedIn({ status: data.email_verified, data });
+    Cookies.set(LOGIN_KEY, response.credential);
+  };
+
+  const [isLogedIn, setIsLogedIn] = useState({
+    status: false,
+    data: null,
+  });
+
+  console.log(process.env.REACT_APP_CLIENT_ID);
+  useEffect(() => {
+    /* global google */
+    // console.log(google);
+    google.accounts.id.initialize({
+      client_id: process.env.REACT_APP_CLIENT_ID,
+      callback: handleResponse,
+      cancel_on_tap_outside: false,
+    });
+    // google.accounts.id.renderButton(
+    //   document.getElementById("gg-login-btn"),
+    //   { theme: "outline", size: "large" } // customization attributes
+    // );
+    google.accounts.id.prompt();
+  }, []);
+  const clickLogin = () => {
+    google.accounts.id.prompt();
+    console.log("clicked");
+  };
+  return isLogedIn.status ? (
+    <img
+      src={isLogedIn.data.picture}
+      alt=""
+      style={{ width: "3rem", borderRadius: "50%" }}
     />
+  ) : (
+    <i
+      className="fas fa-user-circle text-warning ms-2"
+      aria-hidden="true"
+      style={{ fontSize: "2rem" }}
+      onClick={() => clickLogin()}
+    ></i>
   );
 };
 const Right = () => {
