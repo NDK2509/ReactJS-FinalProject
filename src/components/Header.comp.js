@@ -4,8 +4,8 @@ import "./../assets/css/header.css";
 import { useEffect } from "react";
 import jwtDecode from "jwt-decode";
 import Cookies from "js-cookie";
+import { LOGIN_KEY } from "../utils/Constants";
 
-const LOGIN_KEY = "ReactJSLogin"
 const Left = () => {
   return (
     <div className="left-header d-flex justify-content-evenly align-items-center">
@@ -135,12 +135,14 @@ const LoginButton = () => {
       style={{ width: "3rem", borderRadius: "50%" }}
     />
   ) : (
-    <i
-      className="fas fa-user-circle text-warning ms-2"
-      aria-hidden="true"
-      style={{ fontSize: "2rem" }}
-      onClick={() => clickLogin()}
-    ></i>
+    <Link to="/Login">
+      <i
+        className="fas fa-user-circle text-warning ms-2"
+        aria-hidden="true"
+        style={{ fontSize: "2rem" }}
+        onClick={() => clickLogin()}
+      ></i>
+    </Link>
   );
 };
 const Right = () => {

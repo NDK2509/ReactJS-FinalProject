@@ -1,20 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import jwtDecode from "jwt-decode";
 import Cookies from "js-cookie";
-
+import { LOGIN_KEY } from "../utils/Constants";
 const LoginPage = () => {
-  const LOGIN_KEY = "ReactJSLogin";
 
   const handleResponse = (response) => {
     const data = jwtDecode(response.credential);
     console.log(data);
-    setIsLogedIn({ status: data.email_verified, data });
+    // setIsLogedIn({ status: data.email_verified, data });
     Cookies.set(LOGIN_KEY, response.credential);
   };
-  const [isLogedIn, setIsLogedIn] = useState({
-    status: false,
-    data: null,
-  });
+  // const [isLogedIn, setIsLogedIn] = useState({
+  //   status: false,
+  //   data: null,
+  // });
   useEffect(() => {
     /* global  google */
     google.accounts.id.initialize({
